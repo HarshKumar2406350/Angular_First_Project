@@ -1,4 +1,5 @@
-import { Component ,computed,Input,input} from '@angular/core';
+import { Component ,computed,Input,input, Output,EventEmitter} from '@angular/core';
+
 
 //import { DUMMY_USERS } from '../dummy-users';
 
@@ -18,7 +19,10 @@ export class UserComponent {
 
       avatar = input.required<string>();
       name = input.required<string>();
+      id = input.required<string>();
 
+      @Output() select = new EventEmitter();
+      //select = output<String>(); using singnal output
 
       inputPath = computed(() => {
         return 'avatar/users/' + this.avatar();
@@ -26,6 +30,6 @@ export class UserComponent {
     
 
       onSelectUser() {
-        
+        this.select.emit(this.id());
       }
 }
