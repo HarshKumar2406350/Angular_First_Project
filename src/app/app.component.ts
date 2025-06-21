@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { headerComponent } from "./header/header.component";
 import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users';
+import { NameCardComponent } from './name-card/name-card.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [headerComponent,UserComponent],
+  imports: [headerComponent,UserComponent,NameCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   users = DUMMY_USERS;
+  @Input({required:true}) selectedUser !: {id : string, name: string, avatar: string};
 
   onSelectedUser(id: string) {
-    console.log('Selected user ID:', id);
+    this.selectedUser = this.users.find(user => user.id === id)!;
+    
   }
 }

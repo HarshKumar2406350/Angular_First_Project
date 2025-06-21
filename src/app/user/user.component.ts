@@ -21,11 +21,11 @@ export class UserComponent {
       name = input.required<string>();
       id = input.required<string>();
 
-      @Output() select = new EventEmitter();
-      //select = output<String>(); using singnal output
+      @Output() select = new EventEmitter<string>();
+      //select = output<String>(); using signal output
 
       inputPath = computed(() => {
-        return 'avatar/users/' + this.avatar();
+        return 'assets/users/' + this.avatar();
       });
     
 

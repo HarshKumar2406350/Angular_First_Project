@@ -37,5 +37,16 @@
     </li>
   </ul>
 
-  TODO:TASKS OF THE USER
+  <div>
+    @if (selectedUser) {
+      <app-name-card  
+        [name]="selectedUser.name" 
+        [avatar]="selectedUser.avatar" 
+        [id]="selectedUser.id"
+      />
+    }
+  </div>
+
+
+  
 </main>
