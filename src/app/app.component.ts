@@ -3,6 +3,7 @@ import { headerComponent } from "./header/header.component";
 import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users';
 import { TasksComponent } from './tasks/tasks.component';
+import { InputTaskComponent } from './input-task/input-task.component';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,12 @@ export class AppComponent {
   @Input({required:true}) selectedUser : {id : string, name: string, avatar: string} = this.users[0];
   //NOTE : selectedUser is marked as @Input({required:true}) but AppComponent is the root component, so parent component has to  pass this value to it. This means selectedUser must have some value .
 
+
+  @Input({required : true}) addTaskComponent !: boolean;
+
   onSelectedUser(id: string) {
     this.selectedUser = this.users.find(user => user.id === id)!;
-    
   }
+
+ 
 }
