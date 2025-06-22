@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 import { headerComponent } from "./header/header.component";
 import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users';
-import { NameCardComponent } from './name-card/name-card.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [headerComponent,UserComponent,NameCardComponent],
+  imports: [headerComponent,UserComponent,TasksComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
