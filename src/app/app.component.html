@@ -16,6 +16,10 @@
       [avatar]="selectedUser.avatar"
       [id]="selectedUser.id"
     />
+    }@else {
+      <p id="fallback" >
+        Select a user to see their tasks
+      </p>
     }
   </div>
 </main>
