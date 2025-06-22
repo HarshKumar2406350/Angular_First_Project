@@ -13,7 +13,8 @@ import { TasksComponent } from './tasks/tasks.component';
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  @Input({required:true}) selectedUser !: {id : string, name: string, avatar: string};
+  @Input({required:true}) selectedUser : {id : string, name: string, avatar: string} = this.users[0];
+  //NOTE : selectedUser is marked as @Input({required:true}) but AppComponent is the root component, so parent component has to  pass this value to it. This means selectedUser must have some value .
 
   onSelectedUser(id: string) {
     this.selectedUser = this.users.find(user => user.id === id)!;
